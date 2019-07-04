@@ -27,8 +27,6 @@ def daily_update():
     webpage = requests.get(url)
     soup = BeautifulSoup(webpage.text, 'html.parser')
 
-    free_game = soup.findAll("span", {"class":"free-game-txt"})
-    teams = free_game[0]
     for game in soup.findAll("tr", {"class":"free-game"}):
         result = game.get_text()
     matchup = " ".join(result.split())
